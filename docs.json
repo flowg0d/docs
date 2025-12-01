@@ -19,7 +19,7 @@
       {
         "group": "API",
         "pages": [
-          "api-reference/endpoint/send-transaction"
+          "eth_sendRawTransaction"
         ]
       },
       {

@@ -1,6 +1,6 @@
 <svg viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="pathGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+    <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#00ffff" />
       <stop offset="50%" stop-color="#00ff88" />
       <stop offset="100%" stop-color="#00ffff" />
@@ -8,36 +8,36 @@
   </defs>
   
   <g>
-    <!-- First chevron (shortest) -->
+    <!-- First chevron -->
     <path
-      d="M 8 30 L 18 20"
+      d="M 8 14 L 14 20 L 8 26"
       fill="none"
       stroke="url(#pathGradient)"
-      stroke-width="3"
+      stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     
-    <!-- Second chevron (medium) -->
+    <!-- Second chevron -->
     <path
-      d="M 12 35 L 25 18"
+      d="M 16 14 L 22 20 L 16 26"
       fill="none"
       stroke="url(#pathGradient)"
-      stroke-width="3"
+      stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     
-    <!-- Third chevron (longest) -->
+    <!-- Third chevron -->
     <path
-      d="M 16 40 L 32 16"
+      d="M 24 14 L 30 20 L 24 26"
       fill="none"
       stroke="url(#pathGradient)"
-      stroke-width="3"
+      stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
   </g>
   
-  <text x="45" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#FAFAFA">OrderPath</text>
+  <text x="38" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#FAFAFA">OrderPath</text>
 </svg>

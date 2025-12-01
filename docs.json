@@ -58,5 +58,8 @@
     "socials": {
       "x": "https://x.com/orderpath"
     }
-  }
+  },
+  "customScripts": [
+    "/custom-logo.js"
+  ]
 }

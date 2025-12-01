@@ -1,0 +1,26 @@
+/* Override Mintlify's default logo size constraints */
+.navbar-logo,
+.navbar-logo img,
+.navbar-logo svg {
+  width: auto !important;
+  height: 80px !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-height: 80px !important;
+}
+
+/* Ensure logo container doesn't constrain size */
+[class*="navbar"] [class*="logo"],
+[class*="navbar"] a[href="/"] {
+  height: 80px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Target the SVG directly */
+.navbar-logo svg {
+  width: auto !important;
+  height: 80px !important;
+  min-width: 300px !important;
+}
+

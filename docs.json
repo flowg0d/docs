@@ -59,6 +59,9 @@
       "x": "https://x.com/orderpath"
     }
   },
+  "styles": [
+    "/custom.css"
+  ],
   "customScripts": [
     "/custom-logo.js"
   ]

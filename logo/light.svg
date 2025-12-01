@@ -1,8 +1,10 @@
 <svg
+  width="600"
+  height="120"
   viewBox="0 0 200 40"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  style="width: 100%; height: 100%; min-width: 300px; min-height: 60px;"
+  style="width: 600px; height: 120px; min-width: 600px; min-height: 120px;"
 >
   <defs>
     <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -83,9 +85,9 @@
   <!-- OrderPath text -->
   <text
     x="45"
-    y="26"
+    y="32"
     font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
-    font-size="20"
+    font-size="40"
     font-weight="600"
     fill="#09090B"
     letter-spacing="-0.02em"

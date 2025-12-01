@@ -1,26 +1,27 @@
-/* Override Mintlify's default logo size constraints */
-.navbar-logo,
-.navbar-logo img,
-.navbar-logo svg {
-  width: auto !important;
-  height: 80px !important;
-  max-width: none !important;
-  max-height: none !important;
-  min-height: 80px !important;
-}
-
-/* Ensure logo container doesn't constrain size */
+/* Override Mintlify's default logo size constraints - DOUBLE SIZE */
 [class*="navbar"] [class*="logo"],
-[class*="navbar"] a[href="/"] {
-  height: 80px !important;
+[class*="navbar"] a[href="/"],
+.navbar-logo,
+nav a[href="/"],
+header a[href="/"] {
+  height: 160px !important;
+  min-height: 160px !important;
   display: flex !important;
   align-items: center !important;
+  max-height: none !important;
 }
 
-/* Target the SVG directly */
-.navbar-logo svg {
+[class*="navbar"] [class*="logo"] svg,
+[class*="navbar"] a[href="/"] svg,
+.navbar-logo svg,
+.navbar-logo img,
+nav a[href="/"] svg,
+header a[href="/"] svg {
   width: auto !important;
-  height: 80px !important;
-  min-width: 300px !important;
+  height: 160px !important;
+  min-width: 600px !important;
+  min-height: 160px !important;
+  max-width: none !important;
+  max-height: none !important;
 }
 

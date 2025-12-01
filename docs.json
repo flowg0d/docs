@@ -22,13 +22,23 @@
         ]
       },
       {
-        "tab": "API Reference",
+        "tab": "API",
         "groups": [
           {
-            "group": "API Reference",
+            "group": "API",
             "pages": [
-              "api-reference/introduction",
               "api-reference/endpoint/send-transaction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Links",
+        "groups": [
+          {
+            "group": "Links",
+            "pages": [
+              "links"
             ]
           }
         ]

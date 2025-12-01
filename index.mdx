@@ -1,10 +1,92 @@
 ---
 title: "Introduction"
-description: "OrderPath RPC endpoint information"
+description: "OrderPath — Private Orderflow & MEV-Aware RPC"
 ---
 
-## Endpoint
+## What is OrderPath?
 
-**Production:** `https://rpc.orderpath.xyz`
+OrderPath is a private transaction-routing layer for Ethereum that routes signed transactions through an optimized builder network instead of the public mempool.
 
-OrderPath uses standard JSON-RPC 2.0, so you can use it as a drop-in replacement for any Ethereum RPC endpoint.
+This gives wallets, dApps, and infrastructure providers a drop-in way to:
+
+- Protect user transactions from frontrunning, sandwich attacks, and other MEV risks
+- Reduce gas costs via **priority-fee rebates**
+- Enable **MEV rebates / value sharing** when blocks generate surplus profit
+- Maintain compatibility with standard JSON-RPC (`eth_sendRawTransaction`) — **no changes required** on your end
+
+## Why OrderPath Matters
+
+### Public Mempool == Risk
+
+Sending transactions via public RPC or mempool exposes them to bots that monitor pending transactions. This opens up your users to:
+
+- Front-running (bots see your tx before it's mined)
+- Sandwich attacks (bots place trades around yours to extract value)
+- Higher gas fees due to uncertainty in inclusion time
+
+### Many Users Overpay Gas
+
+To increase the odds of inclusion, users often overpay priority fees (tips). That surplus normally goes straight to validators/builders — **with zero transparency or refund mechanism**.
+
+### Builders + MEV = Opportunity
+
+Modern builders like Beaverbuild / BuilderNet can:
+
+- Accept private bundles
+- Optimize transaction ordering
+- Extract MEV profit (arbitrage, sandwich, liquidation, etc.)
+- Refund overpaid gas fees and share block-level surplus
+
+With OrderPath, you get all of that — safely, transparently, and with minimal integration overhead.
+
+## What You Get With OrderPath
+
+| Benefit | What It Means for You |
+|--------|------------------------|
+| **Mempool Privacy & MEV Protection** | Private bundle routing → no public exposure, no bots snooping your pending txs. |
+| **Gas Rebates (Priority-Fee Recovery)** | If you overpay, get a refund when the tx lands — reclaim wasted gas. |
+| **MEV Rebates / Revenue-Share** | Gain a share of any extra value the builder extracts — not just savings, but potential upside. |
+| **Drop-in Integration** | Use the same JSON-RPC endpoints your systems already know. No changes required to wallets or smart-contract logic. |
+| **Optimized Execution** | Faster inclusion, optimized blocks, better success rate under congestion or volatility. |
+| **Transparent & Reliable** | Builder-grade infrastructure, predictable routing, and tools to track inclusion, refunds, and MEV payouts. |
+
+## How OrderPath Works — High-Level Flow
+
+1. **User / dApp signs** a transaction as usual.
+2. **OrderPath RPC** receives the signed `rawTransaction`.
+3. OrderPath wraps the tx in a **private bundle**, optionally with rebate/MEV parameters.
+4. Bundle is sent to a **trusted block builder** (e.g. Beaverbuild, BuilderNet).
+5. Builder includes the tx privately — **not public mempool**.
+6. On block inclusion:
+   - **Refund transaction** may trigger, returning surplus priority fees
+   - **MEV-share payout**, if the block generated surplus value, sent to configured recipient
+7. OrderPath records inclusion, rebate, and MEV-share; exposes data to users/partners via dashboard or API.
+
+## Who Benefits From OrderPath
+
+- **Wallet providers** — offer users a safer, private, and cheaper execution option.
+- **DeFi apps & aggregators** — protect trades from sandwiching while reducing effective gas cost.
+- **Infrastructure & RPC providers** — add a premium "private + MEV-aware" layer on top of standard node infrastructure.
+- **High-volume traders / bots** — reduce gas waste, avoid MEV losses, increase profit potential.
+
+## Getting Started
+
+1. Swap your RPC endpoint for OrderPath's (e.g. `https://rpc.orderpath.xyz`).
+2. Send transactions with your existing tooling — no changes required.
+3. Optionally set rebate / MEV parameters if you want refunds / revenue-share.
+4. Use OrderPath dashboard or API to monitor inclusion, rebate status, and payouts.
+
+## Our Vision
+
+We built OrderPath because we believe on-chain activity should be **private, fair, and efficient** — not auctioned off to the highest-paying bots.
+
+With OrderPath, every user, wallet, or dApp automatically benefits from:
+
+- Private execution
+- Lower net gas cost
+- Transparency
+- Shared upside when their orders generate value
+
+We're not just another RPC provider — we're a **mission-driven private orderflow layer**, built for **security, savings, and fairness**.
+
+Join us to reroute Ethereum transaction flow into something better.

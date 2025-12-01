@@ -4,8 +4,8 @@
   "name": "OrderPath",
   "colors": {
     "primary": "#00FF88",
-    "light": "#00FFFF",
-    "dark": "#000000"
+    "light": "#00FF88",
+    "dark": "#00FF88"
   },
   "favicon": "/favicon.svg",
   "navigation": {

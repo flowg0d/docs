@@ -8,8 +8,8 @@
     .navbar-logo,
     nav a[href="/"],
     header a[href="/"] {
-      height: 80px !important;
-      min-height: 80px !important;
+      height: 160px !important;
+      min-height: 160px !important;
       display: flex !important;
       align-items: center !important;
     }
@@ -20,9 +20,9 @@
     nav a[href="/"] svg,
     header a[href="/"] svg {
       width: auto !important;
-      height: 80px !important;
-      min-width: 300px !important;
-      min-height: 80px !important;
+      height: 160px !important;
+      min-width: 600px !important;
+      min-height: 160px !important;
       max-width: none !important;
       max-height: none !important;
     }

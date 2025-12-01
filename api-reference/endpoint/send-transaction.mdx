@@ -66,34 +66,6 @@ The `result` field contains the transaction hash.
 }
 ```
 
-## Transaction Status
-
-After submitting a transaction, you can check its status using the `/mev-status` endpoint:
-
-```bash
-curl "https://rpc.orderpath.xyz/mev-status?txHash=0x392d359de9fcc4d4164615ed5a2e09a1efea27f4d18f44ebb73643050bcafe24"
-```
-
-### Status Values
-
-- `pending_private` - Transaction submitted, waiting for builder
-- `submitted` - Transaction sent to builder
-- `included` - Transaction included on-chain
-- `expired` - Transaction expired without inclusion
-
-### Status Response Example
-
-```json
-{
-  "tx_hash": "0x392d359de9fcc4d4164615ed5a2e09a1efea27f4d18f44ebb73643050bcafe24",
-  "status": "included",
-  "builder": {
-    "selectedBuilder": "titan",
-    "bundleHash": "0x5632827209118c1a0364660c2cb55a96207991d9aa82efadd703a3f2d72469af"
-  }
-}
-```
-
 ## Integration Examples
 
 ### Web3.js
@@ -104,11 +76,6 @@ const web3 = new Web3('https://rpc.orderpath.xyz');
 
 // Submit transaction
 const txHash = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
-
-// Check status
-const status = await fetch(
-  `https://rpc.orderpath.xyz/mev-status?txHash=${txHash}`
-).then(r => r.json());
 ```
 
 ### Ethers.js
@@ -122,11 +89,6 @@ const tx = await wallet.sendTransaction({
   to: '0x...',
   value: ethers.utils.parseEther('0.1')
 });
-
-// Check status
-const status = await fetch(
-  `https://rpc.orderpath.xyz/mev-status?txHash=${tx.hash}`
-).then(r => r.json());
 ```
 
 ## Transaction Validation

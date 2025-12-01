@@ -8,43 +8,26 @@
     "dark": "#000000"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "General",
-        "groups": [
-          {
-            "group": "General",
-            "pages": [
-              "index"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API",
-        "groups": [
-          {
-            "group": "API",
-            "pages": [
-              "api-reference/endpoint/send-transaction"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Links",
-        "groups": [
-          {
-            "group": "Links",
-            "pages": [
-              "links"
-            ]
-          }
-        ]
-      }
-    ]
-  },
+  "navigation": [
+    {
+      "group": "General",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "group": "API",
+      "pages": [
+        "api-reference/endpoint/send-transaction"
+      ]
+    },
+    {
+      "group": "Links",
+      "pages": [
+        "links"
+      ]
+    }
+  ],
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"

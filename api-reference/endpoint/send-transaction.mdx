@@ -1,0 +1,153 @@
+---
+title: 'Send Raw Transaction'
+description: 'Submit a signed raw transaction to MEV builders using eth_sendRawTransaction'
+---
+
+## Overview
+
+The `eth_sendRawTransaction` method submits a signed raw transaction to OrderPath, which routes it to MEV builders for optimal execution and potential refunds.
+
+## Method
+
+`eth_sendRawTransaction`
+
+## Request
+
+```bash
+curl -X POST https://rpc.orderpath.xyz \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_sendRawTransaction",
+    "params": ["0x02f8..."],
+    "id": 1
+  }'
+```
+
+### Parameters
+
+- `rawTransaction` (string, required): The signed raw transaction hex string (0x-prefixed)
+
+### Example Request
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "eth_sendRawTransaction",
+  "params": ["0x02f8..."],
+  "id": 1
+}
+```
+
+## Response
+
+### Success Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x392d359de9fcc4d4164615ed5a2e09a1efea27f4d18f44ebb73643050bcafe24"
+}
+```
+
+The `result` field contains the transaction hash.
+
+### Error Response
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "error": {
+    "code": -32000,
+    "message": "Transaction validation failed: invalid signature"
+  }
+}
+```
+
+## Transaction Status
+
+After submitting a transaction, you can check its status using the `/mev-status` endpoint:
+
+```bash
+curl "https://rpc.orderpath.xyz/mev-status?txHash=0x392d359de9fcc4d4164615ed5a2e09a1efea27f4d18f44ebb73643050bcafe24"
+```
+
+### Status Values
+
+- `pending_private` - Transaction submitted, waiting for builder
+- `submitted` - Transaction sent to builder
+- `included` - Transaction included on-chain
+- `expired` - Transaction expired without inclusion
+
+### Status Response Example
+
+```json
+{
+  "tx_hash": "0x392d359de9fcc4d4164615ed5a2e09a1efea27f4d18f44ebb73643050bcafe24",
+  "status": "included",
+  "builder": {
+    "selectedBuilder": "titan",
+    "bundleHash": "0x5632827209118c1a0364660c2cb55a96207991d9aa82efadd703a3f2d72469af"
+  }
+}
+```
+
+## Integration Examples
+
+### Web3.js
+
+```javascript
+const Web3 = require('web3');
+const web3 = new Web3('https://rpc.orderpath.xyz');
+
+// Submit transaction
+const txHash = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+
+// Check status
+const status = await fetch(
+  `https://rpc.orderpath.xyz/mev-status?txHash=${txHash}`
+).then(r => r.json());
+```
+
+### Ethers.js
+
+```javascript
+const { ethers } = require('ethers');
+const provider = new ethers.providers.JsonRpcProvider('https://rpc.orderpath.xyz');
+
+// Submit transaction
+const tx = await wallet.sendTransaction({
+  to: '0x...',
+  value: ethers.utils.parseEther('0.1')
+});
+
+// Check status
+const status = await fetch(
+  `https://rpc.orderpath.xyz/mev-status?txHash=${tx.hash}`
+).then(r => r.json());
+```
+
+## Transaction Validation
+
+Before submitting a transaction, you can validate it using the `/validate-tx` endpoint:
+
+```bash
+curl -X POST https://rpc.orderpath.xyz/validate-tx \
+  -H "Content-Type: application/json" \
+  -d '{
+    "rawTx": "0x02f8..."
+  }'
+```
+
+## Error Codes
+
+Common error codes for `eth_sendRawTransaction`:
+
+- `-32700` - Parse error
+- `-32600` - Invalid Request
+- `-32601` - Method not found
+- `-32602` - Invalid params
+- `-32000` - Server error (validation, submission, etc.)
+

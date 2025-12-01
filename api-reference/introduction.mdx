@@ -1,33 +1,22 @@
 ---
 title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+description: 'OrderPath API overview and endpoint information'
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## API Overview
 
-## Welcome
+OrderPath provides a transaction routing service that submits your transactions to MEV builders for optimal execution and potential refunds. The API uses standard JSON-RPC 2.0 protocol, making it compatible with any Ethereum RPC client.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## Endpoint
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+**Production:** `https://rpc.orderpath.xyz`
 
-## Authentication
+OrderPath uses standard JSON-RPC 2.0, so you can use it as a drop-in replacement for any Ethereum RPC endpoint.
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+## Supported Methods
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+OrderPath supports all standard Ethereum JSON-RPC methods. Unsupported methods are automatically forwarded to an upstream RPC provider.
+
+**OrderPath-specific methods:**
+
+- `eth_sendRawTransaction` - Submit transaction to MEV builder

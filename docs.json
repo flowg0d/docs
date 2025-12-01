@@ -3,7 +3,7 @@
   "theme": "mint",
   "name": "OrderPath",
   "colors": {
-    "primary": "#00FF80",
+    "primary": "#00FF88",
     "light": "#00FFFF",
     "dark": "#000000"
   },
@@ -24,17 +24,8 @@
       },
       {
         "group": "Links",
-        "anchors": [
-          {
-            "anchor": "Main Website",
-            "href": "https://orderpath.xyz",
-            "icon": "globe"
-          },
-          {
-            "anchor": "X",
-            "href": "https://x.com/orderpath",
-            "icon": "x"
-          }
+        "pages": [
+          "links"
         ]
       }
     ]

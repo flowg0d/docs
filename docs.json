@@ -24,8 +24,17 @@
       },
       {
         "group": "Links",
-        "pages": [
-          "links"
+        "anchors": [
+          {
+            "anchor": "Main Website",
+            "href": "https://orderpath.xyz",
+            "icon": "globe"
+          },
+          {
+            "anchor": "X",
+            "href": "https://x.com/orderpath",
+            "icon": "x"
+          }
         ]
       }
     ]

@@ -1,13 +1,26 @@
-<svg width="300" height="120" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+  width="200"
+  height="96"
+  viewBox="0 0 200 40"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
   <defs>
     <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#00ffff" />
       <stop offset="50%" stop-color="#00ff88" />
       <stop offset="100%" stop-color="#00ffff" />
     </linearGradient>
+    <filter id="iconGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
   </defs>
-  
-  <g transform="scale(4)">
+
+  <g filter="url(#iconGlow)">
     <!-- First chevron -->
     <path
       d="M 8 14 L 14 20 L 8 26"
@@ -16,8 +29,17 @@
       stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
-    />
-    
+    >
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 4,0; 0,0"
+        dur="1.2s"
+        repeatCount="indefinite"
+      />
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.2s" repeatCount="indefinite" />
+    </path>
+
     <!-- Second chevron -->
     <path
       d="M 16 14 L 22 20 L 16 26"
@@ -26,8 +48,18 @@
       stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
-    />
-    
+    >
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 4,0; 0,0"
+        dur="1.2s"
+        begin="0.2s"
+        repeatCount="indefinite"
+      />
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.2s" begin="0.2s" repeatCount="indefinite" />
+    </path>
+
     <!-- Third chevron -->
     <path
       d="M 24 14 L 30 20 L 24 26"
@@ -36,8 +68,29 @@
       stroke-width="2.5"
       stroke-linecap="round"
       stroke-linejoin="round"
-    />
+    >
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0; 4,0; 0,0"
+        dur="1.2s"
+        begin="0.4s"
+        repeatCount="indefinite"
+      />
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="1.2s" begin="0.4s" repeatCount="indefinite" />
+    </path>
   </g>
   
-  <text x="152" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="600" fill="#FAFAFA">OrderPath</text>
+  <!-- OrderPath text -->
+  <text
+    x="45"
+    y="26"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+    font-size="20"
+    font-weight="600"
+    fill="#FAFAFA"
+    letter-spacing="-0.02em"
+  >
+    OrderPath
+  </text>
 </svg>

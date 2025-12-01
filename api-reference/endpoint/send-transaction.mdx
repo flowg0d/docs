@@ -91,18 +91,6 @@ const tx = await wallet.sendTransaction({
 });
 ```
 
-## Transaction Validation
-
-Before submitting a transaction, you can validate it using the `/validate-tx` endpoint:
-
-```bash
-curl -X POST https://rpc.orderpath.xyz/validate-tx \
-  -H "Content-Type: application/json" \
-  -d '{
-    "rawTx": "0x02f8..."
-  }'
-```
-
 ## Error Codes
 
 Common error codes for `eth_sendRawTransaction`:
